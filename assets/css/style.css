@@ -1,0 +1,37 @@
+body {
+    margin-top: 20px;
+    background-image: url('https://scontent.fric1-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/32460659_10211918355490390_5329552882414911488_n.png?_nc_cat=0&oh=6becb02523c995ef251626fbd8f85873&oe=5B82EA88');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+}
+
+#gamearea {
+    width: 460px;
+    height: 250px;
+    background-color: white;
+    position: absolute;
+    top: 42%;
+    left: 38%;
+
+}
+
+#scorearea {
+    width: 250px;
+    height: 280px;
+    background-color: white;
+    position: absolute;
+    top: 70%;
+    left: 70%;
+}
+
+h2, h3 {
+    font-family: 'Dancing Script', cursive;
+
+}
+
+h4 {
+    font-family: 'Dancing Script', cursive;
+}
