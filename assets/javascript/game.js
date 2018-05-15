@@ -14,6 +14,8 @@ function gameStart() {
 //var randWord = wordBank[Math.floor(Math.random() * wordBank.length)];
 var randWord = 'horse'
 //Begin word logic
+
+//Horse Logic
 if (randWord === 'horse') {
     document.getElementById("slot1").innerHTML = '_';
     document.getElementById("slot2").innerHTML = '_';
@@ -24,9 +26,25 @@ if (randWord === 'horse') {
     document.getElementById("slot7").innerHTML = '';
     document.getElementById("slot8").innerHTML = '';
     }
-
-if (pressedKey === 'h'){
-   document.getElementById("slot1").innerHTML = 'H';
-        
-            }
 }
+function checkKeyPress(key){
+    if (key.keyCode == '72'){
+        document.getElementById("slot1").innerHTML = 'H';
+    }
+    if (key.keyCode == '79'){
+        document.getElementById("slot2").innerHTML = 'O';
+    }
+    if (key.keyCode == '82'){
+        document.getElementById("slot3").innerHTML = 'R';
+    }
+    if (key.keyCode == '83'){
+        document.getElementById("slot4").innerHTML = 'S';
+    }
+    if (key.keyCode == '69'){
+        document.getElementById("slot5").innerHTML = 'E';
+    }
+    else {
+       
+    }
+}
+

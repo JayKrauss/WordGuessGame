@@ -6,6 +6,7 @@ body {
     background-size: cover;
     background-position: center;
     background-color: black;
+    
 }
 
 #gamearea {
@@ -23,6 +24,7 @@ body {
     top: 110%;
     left: 30%;
     padding: 0px;
+
 }
 
 #scorearea {
@@ -33,6 +35,7 @@ body {
     position: absolute;
     top: 67%;
     left: 70%;
+
 }
 
 h2, h3, h4 {
