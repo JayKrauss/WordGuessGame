@@ -13,20 +13,20 @@
     <div id='gamearea'>
         <center><h2>Welcome to Desert Hangout!</h2>
         <hr>
-        <h3>Guess the word!</h3>
-        <h4>(Type your letter guesses one at a time. 10 wrong guesses and its game over!)</h4>
+        <h3>Guess the word! Press Enter to start!</h3>
+        <h4>(Type your letter guesses one at a time. 10 wrong guesses and it's game over!)</h4>
         <hr><br>
-        <span id='word'><h3>_ _ R _ _ _ _</h3></span>
+        <span id='word'><h3>_ _ _ _ _ _ _</h3></span>
     </center>
-
+    <div id='start'><button onclick="gameStart()"><img src='assets/images/play.png'></button></div>
     </div>
     <div id='scorearea'>
-        <center><h4>Score!:</h4></center>
+        <center><h3>Score!:</h3></center>
         <hr>
-        <h4>Guesses: <span id='guesses'>Z, Y</span><br></h4>
-        <h4>Guesses Remaining: <span id='lives'>♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ❌ ❌</span></h4>
-        <h4>Wins: <span id='wins'></span></h4>
-        <h4>Losses: <span id='losses'>❌</span></h4>
+        <h4>Guesses: <span id='quote'>None yet!</span><br></h4>
+        <h4>Guesses Remaining: <span id='lives'>♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥</span></h4>
+        <h4>Wins: <span id='wins'></span>0</h4>
+        <h4>Losses: <span id='losses'>0</span></h4>
 
     </div>
 </body>
