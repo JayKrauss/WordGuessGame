@@ -1,3 +1,4 @@
+//An array containing the words to be chosen from.
 var wordBank = ('horse', 'cattle', 'revolver', 'cowboy', 'lariat', 'horseshoe');
 
 var lives = 6;
@@ -41,29 +42,39 @@ var pressedKey = event.key;
 function gameStart() { 
 //Random generation of word choice.
 //var randWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-var randWord = 'assessment'
+var randWord = 'horse'
 //Begin word logic
 
 //Horse logic testing
-if (randWord === 'assessment') {
-    document.getElementById("word").innerHTML = '_'.repeat(randWord.length);
-    
-    
+if (randWord === 'horse') {
+    document.getElementById("slot1").innerHTML = '_';
+    document.getElementById("slot2").innerHTML = '_';
+    document.getElementById("slot3").innerHTML = '_';
+    document.getElementById("slot4").innerHTML = '_';
+    document.getElementById("slot5").innerHTML = '_';
+    document.getElementById("slot6").innerHTML = '';
+    document.getElementById("slot7").innerHTML = '';
+    document.getElementById("slot8").innerHTML = '';
     }
 }
 
 function checkKeyPress(key){
-    console.log(key.key)
-   // if (key.keyCode > '65'){
-        
+    if (key.keyCode == '72'){
+        document.getElementById("slot1").innerHTML = 'H';
     }
-
-var guessedWord = 'Assessment'
-var guessedLetter = 's'
-var position = 0;
-
-while (guessedWord.indexOf(guessedLetter, position) != -1 ) {
-var firstIndex = guessedWord.indexOf(guessedLetter, position)
-position = firstIndex + 1
-console.log(firstIndex)
+    if (key.keyCode == '79'){
+        document.getElementById("slot2").innerHTML = 'O';
+    }
+    if (key.keyCode == '82'){
+        document.getElementById("slot3").innerHTML = 'R';
+    }
+    if (key.keyCode == '83'){
+        document.getElementById("slot4").innerHTML = 'S';
+    }
+    if (key.keyCode == '69'){
+        document.getElementById("slot5").innerHTML = 'E';
+    }
+    else {
+       lives = lives - 1;
+    }
 }
