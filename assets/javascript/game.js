@@ -1,69 +1,81 @@
-var wordBank = ('horse', 'cattle', 'revolver', 'cowboy', 'lariat', 'horseshoe');
-
-var lives = 6;
 var wins = 0;
 var losses = 0;
-var guesses = 0;
+var guessedLetter = '';
+var count = 0;
+var answerArray = [];
+var word = '';
+var display;
 
-//var horse = ('h', 'o', 'r', 's', 'e');
-
-//var randWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-
-document.onkeyup = function(event) {
-    userText.textContent = event.key;
-}
-var pressedKey = event.key;
-
-//function getLives(guesses) {
-//    if (lives === 6) {
-//        document.getElementById('lives').innerHTML = '♥ ♥ ♥ ♥ ♥ ♥';
-//   }
-//    else if (lives === 5) {
-//        document.getElementById('lives').innerHTML = '♥ ♥ ♥ ♥ ♥';
-//    }
-//    else if (lives === 4) {
-//        document.getElementById('lives').innerHTML = '♥ ♥ ♥ ♥';
-//    }
-//    else if (lives === 3) {
-//        document.getElementById('lives').innerHTML = '♥ ♥ ♥';
-//    }
-//    else if (lives === 2) {
-//        document.getElementById('lives').innerHTML = '♥ ♥';
-//    }
-//    else if (lives === 1) {
-//        document.getElementById('lives').innerHTML = '♥';
-//    }
-//    else if (lives === 0) {
-//        document.getElementById('lives').innerHTML = 'GAME OVER';
-//    }
-//}
-//Function called by pressing Start button
-function gameStart() { 
-//Random generation of word choice.
-//var randWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-var randWord = 'assessment'
-//Begin word logic
-
-//Horse logic testing
-if (randWord === 'assessment') {
-    document.getElementById("word").innerHTML = '_'.repeat(randWord.length);
+var words = [
+    "cowboy",
+    "lariat",
+    "horses",
+    "bronco",
+    "pistol",
+    "latigo",
+    "saddle",
+    "cactus",
+    "gaucho",
+    "drover",
+    "farmer",
+    "tieman",
+    "peeler",
+    "ambush"
+    ];
+    //pick a random word
     
-    
-    }
-}
+function gameStart() {
+    reset();
+    //generate random word
+    var word = words[Math.floor(Math.random() * words.length)];
+    console.log(word)
+    //loop to create underscores and join them to a string
+    for ( var i = 0; i < word.length; i++) {
+            answerArray[i] = '_';
+        }   
+    display = answerArray.join('');
+    //pushes the string to the DOM
+    document.getElementById('word').innerHTML = display;
+    //creates the guess function
+    function guess() {
+        for (var i = 0; i < word.length; i++) {
+            if (word[i] === guessedLetter){
+                answerArray[i] = guessedLetter;
+            }
+        }    
 
-function checkKeyPress(key){
-    console.log(key.key)
-   // if (key.keyCode > '65'){
+        count++;
+        document.getElementById('lives').innerHTML = count;
+        document.getElementById('word').innerHTML = answerArray.join('');
         
+        //set win/loss conditions
+        var checking =str.indexOf("_");
+
+        if (checking = -1) {
+            alert('You win!')
+            wins = wins + 1
+            document.getElementById('wins').innerHTML = wins;
+        }
+
+        if(count > 10) {
+            alert('You lose!')
+            losses = losses + 1
+            document.getElementById('losses').innerHTML = losses;
+        }
     }
+    //listens to keypress, pulls the keycode, converts to string, and runs the guess function
+    document.onkeypress = function(e) {
+        e = e || window.event;
+        var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
+        guessedLetter = String.fromCharCode(charCode);
+        console.log(guessedLetter)
+        guess();
+        };
+}
 
-var guessedWord = 'Assessment'
-var guessedLetter = 's'
-var position = 0;
-
-while (guessedWord.indexOf(guessedLetter, position) != -1 ) {
-var firstIndex = guessedWord.indexOf(guessedLetter, position)
-position = firstIndex + 1
-console.log(firstIndex)
+function reset () {
+        //resets the word and count areas
+        document.getElementById('word').innerHTML = '';
+        count = 0;
+        document.getElementById('lives').innerHTML = count;
 }
