@@ -1,7 +1,7 @@
 var wins = 0;
 var losses = 0;
 var guessedLetter = '';
-var count = 0;
+var lives = 0;
 var answerArray = [];
 var word = '';
 var display;
@@ -43,21 +43,22 @@ function gameStart() {
                 answerArray[i] = guessedLetter;
             }
         }    
-
-        count++;
-        document.getElementById('lives').innerHTML = count;
+        
+        lives++;
+        
+        document.getElementById('lives').innerHTML = lives;
         document.getElementById('word').innerHTML = answerArray.join('');
         
         //set win/loss conditions
-        var checking =str.indexOf("_");
+        var checking = answerArray.indexOf("_");
 
-        if (checking = -1) {
+        if (checking = 0) {
             alert('You win!')
             wins = wins + 1
             document.getElementById('wins').innerHTML = wins;
         }
 
-        if(count > 10) {
+        if(lives > 10) {
             alert('You lose!')
             losses = losses + 1
             document.getElementById('losses').innerHTML = losses;
@@ -74,8 +75,8 @@ function gameStart() {
 }
 
 function reset () {
-        //resets the word and count areas
+        //resets the word and lives areas
         document.getElementById('word').innerHTML = '';
-        count = 0;
-        document.getElementById('lives').innerHTML = count;
+        lives = 0;
+        document.getElementById('lives').innerHTML = lives;
 }
